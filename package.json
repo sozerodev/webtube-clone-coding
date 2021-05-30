@@ -1,0 +1,26 @@
+{
+  "name": "webtube",
+  "version": "1.0.0",
+  "description": "The best way to watch videos.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sozerodev/webtube-clone-coding.git"
+  },
+  "scripts": {
+    "win": "node index.js"
+  },
+  "author": "soyoung kim <sozerodev@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sozerodev/webtube-clone-coding/issues"
+  },
+  "homepage": "https://github.com/sozerodev/webtube-clone-coding#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/node": "^7.14.2",
+    "@babel/preset-env": "^7.14.4"
+  }
+}
