@@ -4,4 +4,4 @@ import express from "express";
 
 const app = express();
 
-console.log("Hi!!")
+console.log("Hi!! nodeman is so wonderful")
