@@ -3,6 +3,8 @@
 
 import express from "express";
 
+const PORT = 4000;
+
 // express application 생성!
 const app = express();
 
@@ -14,11 +16,12 @@ const app = express();
 // port는 컴퓨터의 문이나 창문같은 것. 
 
 
-const handleListening = () => console.log("Server listening on port 4000 🚀")
-app.listen(4000, handleListening) // (포트번호, 콜백함수) 
+const handleListening = () => 
+    console.log(`Server listening on port on port http://localhost:${PORT} 🚀`)
+
+app.listen(PORT, handleListening) // (포트번호, 콜백함수) 
     // this is much sexier..?
     // app.listen(4000, () => console.log("Server listening on port 4000 🚀"))
-
 
 
 
