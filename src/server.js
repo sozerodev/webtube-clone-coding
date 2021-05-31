@@ -15,6 +15,14 @@ const app = express();
 // callback을 작성 전에 서버에게 어떤 Port를 listening할 지 얘기해주어야 한다. 
 // port는 컴퓨터의 문이나 창문같은 것. 
 
+// application을 만든 후... 이 다음부터 application설정을 한다.
+// 어떻게 get request에 응답할 지. 
+// request : 유저가 뭔가를 요청, 보내거나, 행동을 하는 것.
+// respond 
+
+// 콜백함수는 inline function으로
+// 콜백함수부분엔 반드시 '함수'를 보내주어야 한다. 
+app.get("/", () => console.log("somebody is trying to go home."))
 
 const handleListening = () => 
     console.log(`Server listening on port on port http://localhost:${PORT} 🚀`)
