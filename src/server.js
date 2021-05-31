@@ -22,7 +22,18 @@ const app = express();
 
 // 콜백함수는 inline function으로
 // 콜백함수부분엔 반드시 '함수'를 보내주어야 한다. 
-app.get("/", () => console.log("somebody is trying to go home."))
+
+// request, respond를 의미하는 두 개의 파라미터가 있어야 한다. 
+// 이 requests, response는 express로부터 받는다.
+const handleHome = (req, res) => {
+    return res.send("i love you");
+}
+app.get("/", handleHome)
+
+const handleLogin = (req, res) => {
+    return res.send("Login Here.")
+}
+app.get("/login", handleLogin)
 
 const handleListening = () => 
     console.log(`Server listening on port on port http://localhost:${PORT} 🚀`)
@@ -30,6 +41,7 @@ const handleListening = () =>
 app.listen(PORT, handleListening) // (포트번호, 콜백함수) 
     // this is much sexier..?
     // app.listen(4000, () => console.log("Server listening on port 4000 🚀"))
+
 
 
 
