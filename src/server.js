@@ -26,12 +26,12 @@ const app = express();
 // request, respond를 의미하는 두 개의 파라미터가 있어야 한다. 
 // 이 requests, response는 express로부터 받는다.
 const handleHome = (req, res) => {
-    return res.send("i love you");
+    return res.send("<h1>i love you</h1>");
 }
 app.get("/", handleHome)
 
 const handleLogin = (req, res) => {
-    return res.send("Login Here.")
+    return res.send({ message : "Login Here." })
 }
 app.get("/login", handleLogin)
 
