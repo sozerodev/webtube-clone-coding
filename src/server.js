@@ -25,10 +25,22 @@ const app = express();
 
 // request, respond를 의미하는 두 개의 파라미터가 있어야 한다. 
 // 이 requests, response는 express로부터 받는다.
-const handleHome = (req, res) => {
-    return res.send("<h1>i love you</h1>");
+
+const gossipMiddleware = (req, res, next) => {
+    // handler에는 다수의 handler를 사용할 수 있다. 
+    // middleware는 작업을 다음 함수에게 넘기는 함수이다. 응답하는 함수가 아니라.
+    // middleware는 필요한 만큼 만들 수 있다. 
+    console.log(`Somenone is going to: ${req.url}`);
+    return res.send("I have the power now!") // 이 코드가 요청을 중단시키기 때문에 밑의 next()..즉, handleHome은 호출되지 않는다.
+    next();
 }
-app.get("/", handleHome)
+
+const handleHome = (req, res) => {
+    // res.end() 는 요청을 종료
+    // res.send()로도 종료 가능. 안에 메시지를 넣을 수 있다. 
+    return res.send("<h1>i love middlewares</h1>");
+}
+app.get("/", gossipMiddleware, handleHome); // gossipMiddleware가 실행된 후, 그 안의 next()가 호출되면서 handleHome이 호출된다. 
 
 const handleLogin = (req, res) => {
     return res.send({ message : "Login Here." })
@@ -41,8 +53,6 @@ const handleListening = () =>
 app.listen(PORT, handleListening) // (포트번호, 콜백함수) 
     // this is much sexier..?
     // app.listen(4000, () => console.log("Server listening on port 4000 🚀"))
-
-
 
 
 
